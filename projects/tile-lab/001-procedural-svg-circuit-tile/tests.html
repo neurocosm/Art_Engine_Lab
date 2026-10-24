@@ -1,0 +1,97 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Circuit tile browser checks</title>
+<h1>Browser checks</h1><pre id="results">Running…</pre>
+<iframe src="index.html" title="Experiment under test" hidden></iframe>
+<script>
+'use strict';
+const results = document.getElementById('results');
+const frame = document.querySelector('iframe');
+frame.onload = async () => {
+  const messages = [];
+  const assert = (condition, message) => {
+    if (!condition) throw new Error(message);
+    messages.push('PASS: ' + message);
+  };
+  const w = frame.contentWindow;
+  const d = frame.contentDocument;
+  async function pixels(markup, size) {
+    const url = URL.createObjectURL(new Blob([markup], {type: 'image/svg+xml'}));
+    try {
+      const image = new Image();
+      image.src = url;
+      await image.decode();
+      const canvas = document.createElement('canvas');
+      canvas.width = canvas.height = size;
+      const context = canvas.getContext('2d');
+      context.drawImage(image, 0, 0, size, size);
+      return context.getImageData(0, 0, size, size).data;
+    } finally { URL.revokeObjectURL(url); }
+  }
+  try {
+    for (const [x, y] of [[0,0],[17,39],[50,50],[99,1],[100,100]]) {
+      const markup = w.svgMarkup(3, x, y);
+      const image = await pixels(markup, 600);
+      const tile = await pixels(w.svgMarkup(1, x, y), 200);
+      let difference = 0;
+      // Compare every rendered pixel, including all internal edges/corners,
+      // with a literal 3x3 assembly of the exported tile at the same scale.
+      for (let py = 0; py < 600; py++) for (let px = 0; px < 600; px++) {
+        for (let c = 0; c < 4; c++) {
+          difference = Math.max(difference, Math.abs(image[(py*600+px)*4+c] - tile[((py%200)*200+px%200)*4+c]));
+        }
+      }
+      assert(difference <= 1, `Export equals repeated preview at phase ${x}, ${y} (max channel difference ${difference})`);
+    }
+    const origin = await pixels(w.svgMarkup(3, 0, 0), 600);
+    const fullTurn = await pixels(w.svgMarkup(3, 100, 100), 600);
+    assert(origin.every((v, i) => v === fullTurn[i]), 'Full-period phase returns exactly to origin');
+    // Compare phase translation to a crop of the original infinite field.
+    // At 2 pixels/unit, an integer phase is an exact pixel translation.
+    const shifted = await pixels(w.svgMarkup(3, 17, 39), 600);
+    let delta = 0;
+    for (let y = 0; y < 600; y++) for (let x = 0; x < 600; x++) for (let c = 0; c < 4; c++) {
+      const ox = (x - 34 + 600) % 600;
+      const oy = (y - 78 + 600) % 600;
+      delta = Math.max(delta, Math.abs(shifted[(y*600+x)*4+c] - origin[(oy*600+ox)*4+c]));
+    }
+    // Translating SVG curves can change Chromium anti-alias rounding by 2/255.
+    assert(delta <= 2, `Phase is a wrapped translation, including edges and corners (max channel difference ${delta})`);
+    d.getElementById('phase-x').value = 37;
+    d.getElementById('phase-x').dispatchEvent(new Event('input'));
+    assert(d.getElementById('value-x').textContent === '37 units', 'Slider updates label and preview');
+    d.getElementById('boundaries').click();
+    assert(d.querySelector('#repeat [stroke-dasharray]'), 'Boundary overlay toggles on');
+    assert(!w.svgMarkup(1,37,0).includes('stroke-dasharray'), 'Export excludes guides');
+    d.getElementById('reset').click();
+    assert(d.getElementById('phase-x').value === '0' && d.getElementById('phase-y').value === '0', 'Reset restores both phases');
+    const parsed = new DOMParser().parseFromString(w.svgMarkup(1,0,0), 'image/svg+xml');
+    assert(!parsed.querySelector('parsererror') && parsed.documentElement.getAttribute('viewBox') === '0 0 100 100', 'Export is valid standalone 100 × 100 SVG');
+    // Reproduce an HTML-only visualization with no sibling asset base URL.
+    // The inline editor must render and respond inside this sandbox too.
+    const embedded = document.createElement('iframe');
+    embedded.hidden = true;
+    embedded.title = 'HTML-only preview regression check';
+    embedded.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-downloads');
+    const html = await (await fetch('index.html')).text();
+    const loaded = new Promise(resolve => { embedded.onload = resolve; });
+    embedded.srcdoc = html;
+    document.body.append(embedded);
+    await loaded;
+    const ed = embedded.contentDocument;
+    assert(ed.querySelectorAll('.surface svg').length === 2, 'HTML-only embedded preview renders both SVGs');
+    assert(embedded.contentWindow.getComputedStyle(ed.body).backgroundColor === 'rgb(16, 28, 28)', 'Embedded preview loads inline styling');
+    for (const axis of ['x', 'y']) {
+      const input = ed.getElementById('phase-' + axis);
+      input.value = axis === 'x' ? '17' : '39';
+      input.dispatchEvent(new Event('input'));
+      assert(ed.getElementById('value-' + axis).textContent === input.value + ' units', `Embedded ${axis.toUpperCase()} slider updates`);
+    }
+    assert(ed.querySelector('#single title').textContent.includes('17, 39') && ed.querySelector('#repeat title').textContent.includes('17, 39'), 'Both embedded previews reflect both sliders');
+    embedded.remove();
+    results.textContent = messages.join('\n') + '\nALL CHECKS PASSED';
+  } catch (error) {
+    results.textContent = messages.join('\n') + '\nFAIL: ' + error.message;
+  }
+};
+</script>
