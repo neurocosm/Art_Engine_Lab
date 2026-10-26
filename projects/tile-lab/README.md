@@ -2,6 +2,13 @@
 
 Independent experiments in seamless repeat mathematics and artist-facing adjustment controls.
 
+## 003 — Bandana Lab (foundational direction)
+
+**Design decision:** Experiment 003 should produce **borderless, visually continuous, mathematically seamless ornamentation** in the spirit of classic paisley bandana artwork—not a repeated grid of complete, framed square bandanas. Paths, vines, rosettes and filler motifs should flow across repeat boundaries; the tile cell should disappear aesthetically, even though it exists mathematically.
+
+Read the [Bandana Lab foundation](../../docs/BANDANA_LAB_FOUNDATION.md) and the [optional Outsider Accent ideas](../../docs/BANDANA_LAB_OUTSIDER_ACCENTS.md) before changing Experiment 003. This replaces the older framed-square specification as the primary goal. The current Codex prototype may still use a square bandana frame; preserve it during incremental redesign. The new experiment files have not yet been merged here.
+
+
 ## 001 — Procedural SVG Circuit Tile
 
 Open [the experiment](001-procedural-svg-circuit-tile/index.html) in a browser. It uses plain HTML, CSS, JavaScript, and SVG, with no installation or build step. Opening the HTML file directly works for the editor and export.
