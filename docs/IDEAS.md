@@ -35,6 +35,31 @@ This is an **exploration inventory**, not a committed feature specification.
 - Artistic offsets/misregistration may deliberately break seams; clearly distinguish them from correctly periodic transformations.
 - **Status:** Idea for a later Experiment 002 iteration / broader Tile Lab research. Basic geometry and three reference palettes remain the first implementation priority.
 
+### Surface FX / Realism (proposed)
+
+Aim to recreate the **material character** of the original brick reference art while preserving mathematically well-defined base geometry.
+
+- Use separately controllable **brick-only**, **grout-only**, **both**, and optional **global overlay** effect targets. Distorting bricks must not accidentally distort grout if the artist selected bricks only.
+- Consider controls for organic edge/shape distortion, micro-chips and nicks, cracking, pores/pitting, scratches, chipped corners, weathering, stains, grime, color drift, uneven highlights/shadows, relief/depth, and texture intensity.
+- Keep effects **reversible and non-destructive**: geometry, materials/texture, and oddities should be separately toggleable. A clean vector mode remains available.
+- Use deterministic **FX seeds** and seeded per-brick variation so the exact same tile can be regenerated and exported consistently. Consider a "randomize FX seed" button with locks for protected settings.
+- Surface distortion or chips need to be applied in a way that preserves shared material edges and expected grout appearance. Seam-crossing effects should wrap with the lattice so exports stay periodic.
+- Explore SVG paths/filters for scalable or procedural effects; Canvas/WebGL can be used for more complex rendering, but raster filters/pixels are **not inherently vector paths**. Do not label a mixed result fully vector.
+- Add a **realism intensity** control that ranges from clean graphic shapes through restrained physical texture to heavily weathered surfaces. Compare reference and output at multiple zoom levels and print sizes.
+
+### Oddity / Easter Egg layer (proposed)
+
+Create optional hidden narrative details without forcing them into every design.
+
+- Include rare anomalous bricks or playful silhouettes (e.g. **lizard-shaped brick**), replacements, hidden pictograms, little carved marks, initials, and inside jokes.
+- Support optional editable graffiti/spray-paint layers, with user-entered text such as **"Kilroy was here"** or **"NO NUKES"**, small doodles, and stenciled marks.
+- Consider **Off / Subtle / Playful / Wild** modes, oddity frequency / rarity, graffiti density, text choice, random surprise, lock controls, and a separate oddity seed.
+- **Seam-safe** mode must correctly wrap oddities across boundaries; **freeform** mode may intentionally create visible seams or a one-off unique graphic. Clearly label the difference.
+- A repeat cell will repeat its oddity too: if the goal is a *single* rare oddity across a larger printed area, use a larger supercell or an export-stage placement layer, rather than pretending a tiny tile can contain a globally unique event.
+- Leave the artist in charge. AI may suggest context-sensitive geek humor and visual details, but must not silently insert or overwrite the artwork.
+
+**Scope:** Future Tile Lab exploration, not initial Experiment 002 requirements. Preserve original imagery and get base geometry, palettes, repetition and export behavior sound first.
+
 ## Rendering techniques
 
 - SVG: paths, geometry, gradients, patterns, outlined typography, scalable motifs.
