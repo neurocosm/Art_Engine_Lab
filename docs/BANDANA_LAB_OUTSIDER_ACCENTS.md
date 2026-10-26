@@ -2,11 +2,12 @@
 
 **Status:** Proposed design exploration; on the shelf for a future Experiment 003 iteration. **No implementation requested.**
 **Project:** Art Engine Lab / Tile Lab / Experiment 003 — Bandana Lab
+**Foundational direction (takes precedence):** [Experiment 003 — Borderless Seamless Ornament](BANDANA_LAB_FOUNDATION.md)
 **Companion:** [Shared AI Assistance — Creative Authenticity Control](AI_ASSISTANCE.md)
 
 ## Creative vision
 
-Start with a convincing traditional square bandana: intricate paisley, florals, borders, corner ornaments, center medallions, and balanced symmetry. Introduce *small*, carefully integrated non-traditional flourishes that reward a second look.
+Start with a convincing **continuous, borderless, mathematically seamless field** of traditional bandana-inspired ornaments: intricate paisley, florals, vines, rosettes, fine filler details and flowing clusters. **Do not tile complete framed bandanas.** Introduce *small*, carefully integrated non-traditional flourishes that reward a second look. This replaces the earlier square-bandana framing assumption.
 
 The artistic moment to aim for: **"Wait — I recognize that!"**
 
@@ -26,14 +27,14 @@ Blend can influence **frequency, scale, placement and integration** instead of m
 ### Independent artist controls (ideas, not fixed UI)
 
 - **Accent family:** None, Kaleidoscope, Fractal, Zodiac Constellations, Planets & Moons, Atom/Energy, Nature Oddities, Mixed.
-- **Placement:** border, corners, center medallion, filler field, or scattered subtly throughout.
+- **Placement:** flowing ornament strands, motif interiors, rosette/cluster details, negative-space filler gaps, or scattered subtly throughout the continuous field. Never depend on the presence of an outer frame.
 - **Visibility/recognizability:** hidden, subtle, recognizable, pronounced.
 - **Frequency/rarity:** one secret, rare, light, medium. Aim to prevent unintended clutter.
 - **Accent scale and line weight:** sized for recognizability at actual bandana/print dimensions, not only when zoomed.
 - **Seed/randomize**, lock choices, toggle on/off, and reset. Keep results deterministic for reproducible SVG export.
 - **Preview aids:** optionally highlight where the accents live; hide this guide in exported artwork.
 
-An overall style preset (Traditional Paisley, Western, Botanical, Geometric/Art Deco, Psychedelic) should be able to configure defaults while the user overrides individual borders, corners, center, or fillers.
+An overall style preset (Traditional Paisley, Western, Botanical, Geometric/Art Deco, Psychedelic) should configure a coherent borderless ornament vocabulary while the artist independently adjusts flowing motifs, clusters, rosettes, fillers and distribution.
 
 ## Recognizable micro-motif families
 
@@ -45,12 +46,12 @@ Use tiny SVG vector star marks connected by very fine, light lines — a delicat
 - Store recognizable **star positions and line connections** as small structured coordinate/path definitions.
 - When labeled as an actual constellation, preserve its identifying configuration as reasonably as possible; if freely rearranged for aesthetics, label it **constellation-inspired** rather than astronomically faithful.
 - Keep star dots larger or brighter than connectors; provide per-motif opacity, size and line-weight controls to maintain clarity on dark/light palettes.
-- Place as occasional filler clusters, tiny corner discoveries, or a delicate design near the central medallion.
+- Place as occasional filler clusters, tiny surprises among vine strands, or a delicate detail inside a larger rosette; respect repeat boundaries.
 - Avoid turning every filler group into a star chart; rarity is part of the appeal.
 
 ### 2. Planetary motifs (especially Saturn)
 
-- A tiny **ringed Saturn** — perhaps the most recognizable icon — integrated inside a floral flourish, paisley interior, corner element or border rhythm.
+- A tiny **ringed Saturn** — perhaps the most recognizable icon — integrated inside a floral flourish, paisley interior or naturally occurring motif cluster without relying on a perimeter border.
 - Optional crescent moon, sunburst, comet, small orbits, and other planets.
 - Prefer original, simple orbital SVG paths and restrained bandana-style linework rather than colorful astronomical clip art.
 - Maintain recognizability at print scale without overpowering traditional ornament.
@@ -58,13 +59,13 @@ Use tiny SVG vector star marks connected by very fine, light lines — a delicat
 ### 3. Atom / Energy symbol
 
 - A familiar stylized atom with intersecting elliptical orbits and a central nucleus; use it as a **symbolic science/energy motif**, not a literal scientifically accurate atom diagram.
-- Subtle placements: an inner paisley, center medallion accent, decorative filler, or one tiny border interruption.
+- Subtle placements: an inner paisley, rosette accent, decorative filler, or one tucked into a curving vine/filigree strand.
 - Let line style match surrounding petals, veins, and swirls. Tiny dots on orbit paths are optional.
 
 ### 4. Kaleidoscopic accents
 
-- Small mirrored radial stars or crystalline fragments, optionally nested within a rosette or medallion.
-- Keep the classic overall symmetry intact; use controlled little pockets of more complex symmetry.
+- Small mirrored radial stars or crystalline fragments, optionally nested within a rosette or repeated floral cluster.
+- Let local ornaments have controlled symmetry without organizing the entire surface around one centered framed composition.
 
 ### 5. Fractal-inspired accents
 
@@ -79,16 +80,16 @@ Use tiny SVG vector star marks connected by very fine, light lines — a delicat
 
 ## Examples of the intended result
 
-- Classic red/white paisley at **10% outsider**: a tiny Saturn embedded in one corner flourish.
+- Continuous red/white paisley at **10% outsider**: a tiny Saturn embedded in one curving floral flourish.
 - Navy/cream design at **15%**: one recognizable zodiac constellation drawn from dots and faint hairlines between floral fillers.
-- Black/white bandana at **12%**: an ornamental atom symbol worked subtly into the central rosette.
+- Borderless black/white ornament field at **12%**: an ornamental atom symbol worked subtly into a small rosette.
 - Traditional floral at **20%**: minute kaleidoscopic details or self-similar curls inside a few motifs, without changing the overall traditional silhouette.
 
 ## Relationship to existing controls
 
 - **Historical Accuracy ↔ Creative License** (shared AI feature): controls whether suggestions follow real historical constraints or allow imaginative invention.
 - **Traditional ↔ Outsider Accent Blend** (Bandana visual feature): controls how much nontraditional iconography appears, independently of historical correctness.
-- **Ornament Style / Border / Corner / Center / Filler**: choose the composition's base vocabulary. Outsider motifs should not replace these selections unless the artist explicitly chooses it.
+- **Ornament Style / Flow / Cluster / Rosette / Filler**: choose the continuous pattern's base vocabulary. Outsider motifs should not replace these selections unless the artist explicitly chooses it.
 
 An accurate traditional bandana may still have one intentionally anachronistic micro-motif; the tool should explain that distinction instead of conflating the two sliders.
 
@@ -99,13 +100,14 @@ An accurate traditional bandana may still have one intentionally anachronistic m
 - Respect symmetry and ornamental balance, but permit intentional asymmetry for a single surprising detail.
 - Maintain enough contrast for tiny stars and hairline connectors at real export/print size; optional preview at actual output size.
 - Keep accents optional, removable, and independently editable. Do not silently overwrite the original bandana artwork.
-- Classic square bandana composition is **not** itself the same as a seamless textile repeat. A later seamless-repeat mode must wrap accents correctly; otherwise identify them as one-off placement layers.
+- The primary Bandana Lab output is a **seamless borderless textile repeat**. Accents crossing any repeat boundary must wrap correctly, including strokes and corners. A one-off placement overlay is allowed only when explicitly labeled **nonseamless/freeform**.
+- A supposedly rare icon repeats with every repeat cell; use a sufficiently larger repeat supercell if truly infrequent accents are desired, and inspect the full repeated field for obvious periodic icons.
 
 ## Proposed sequencing — not a development mandate
 
-1. Preserve and refine the working Experiment 003 classic SVG bandana composition.
-2. Add real selectable ornament *families* for borders/corners/center/fillers.
-3. Introduce **Outsider Accent Blend** with one minimal family (e.g. Saturn, atom or one constellation) and explicit placement.
+1. Preserve the working framed Bandana Lab prototype as a reference while moving the **primary composition** to a visually continuous, borderless, mathematically seamless field.
+2. Add real selectable ornament *families* for flowing paisley/vines, rosettes, clusters and small fillers, with 3×3/5×5 repeat previews and seam diagnosis.
+3. Introduce **Outsider Accent Blend** with one minimal family (e.g. Saturn, atom or one constellation) and seam-safe placement.
 4. Expand motif library only after subtlety, recognizability, export and visual hierarchy are verified.
 5. Optionally connect AI for suggestions once a secure shared service exists; AI must not be required for manual use.
 
