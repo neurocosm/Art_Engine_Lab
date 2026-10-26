@@ -81,6 +81,30 @@ Compare output to the reference rasters for geometry, color, proportions, and ap
 ### Phase E — Artistic Exploration
 Experiment with alternative repeat structures, offsets, palettes, and surface effects.
 
+
+## Proposed Extension — Angle Offset and Lattice Styles (not part of initial build)
+
+Following the initial brick geometry and palette reconstruction, explore controls for transforming the **entire final pattern**:
+
+- **Angle / Rotation:** Rotate the full repeating brick field around a defined origin, measured in degrees. Provide slider/knob, numeric readout, and reset.
+- **Lattice Slant / Shear:** Skew the pattern's repeat geometry independently of rotation.
+- **Arrangement modes:** Original vertical staggered running bond, rotated running bond, straight grid, herringbone, basketweave, and diamond/oblique lattice.
+- **Brick orientation:** Potential separate control; turning bricks individually is *not* equivalent to rotating the entire field.
+- **Live preview:** Show both the transformed pattern and any applicable repeat-cell boundaries / lattice vectors so the artist can judge how it looks.
+- **Artist choice:** Allow aesthetically pleasing deliberate offsets while labeling when the result is *not* seamless.
+
+### Repeat geometry and export caveat
+
+Treat the repeat system as a lattice with points `p(i,j) = p0 + i·u + j·v`, where `u` and `v` are period vectors. A rotation or shear transforms these period vectors along with the shapes; mathematically periodic geometry can still be seamless in its **own transformed cell**.
+
+However, **arbitrary angles do not necessarily yield a seamless, axis-aligned rectangular raster tile**. The rotated pattern may require a parallelogram repeat cell, SVG `patternTransform`, derived rectangular period vectors where they exist, or an explicit export limitation. Cropping a rotated preview to a rectangle is **not** automatically a seamless tile.
+
+For any newly supported transform, test the actual repeat behavior across all exported boundaries and corners, not merely the visual appearance inside the preview.
+
+### Scope and ordering
+
+This is a future enhancement, not a committed requirement for the initial geometry/palette prototype. Build and verify basic repeat behavior first, then test transformations as separate experiments. Preserve the three reference image presets and keep Experiment 001 unchanged.
+
 ## Testing
 
 Verify:
