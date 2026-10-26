@@ -105,6 +105,32 @@ For any newly supported transform, test the actual repeat behavior across all ex
 
 This is a future enhancement, not a committed requirement for the initial geometry/palette prototype. Build and verify basic repeat behavior first, then test transformations as separate experiments. Preserve the three reference image presets and keep Experiment 001 unchanged.
 
+## Proposed Extension — Surface FX / Realism and Oddities (future)
+
+The long-term ambition is to reconstruct the source tiles **as realistically as practical** rather than produce permanently flat, sterile vector rectangles. The mathematical brick-and-grout construction remains the editable foundation.
+
+### Surface FX / Realism Layer
+
+- Artist controls: brick-only shape irregularity/distortion, edge wear, corner chips, nicks, cracks, pitting/pores, scratches, weathering, grime, mottled color variation, texture intensity, shading and apparent depth.
+- Separate **effect target selection**: bricks only, grout only, both, or a global overlay. Distorting a brick must not automatically distort grout.
+- Deterministic per-brick variations using a saved **FX seed**, plus a randomize option and reset. Changes should leave the chosen core geometry recoverable.
+- Implement later as optional, adjustable non-destructive layers. Vector damage and SVG effects may coexist with Canvas/WebGL textures; distinguish actual vector objects from rasterized rendering.
+- Ensure chipped, distorted, or shaded features that cross tile boundaries participate in the same repeat math. Validate seams including corners.
+- Allow clean vector, lightly weathered, and heavily distressed render settings, with an original-reference comparison.
+
+### Oddity / Easter Egg Layer
+
+- Optional anomalies: rare replacement bricks, **lizard-shaped brick**, odd silhouettes, etched symbols, tiny easter eggs, and insider jokes.
+- Optional spray-paint or stencil graffiti, including editable short phrases like **"Kilroy was here"** or **"NO NUKES"**.
+- Controls to consider: **Off / Subtle / Playful / Wild**, rarity/frequency, graffiti density, custom text, seed/randomize, lock individual oddities, reset, and layer visibility.
+- Maintain separate **seam-safe** (wrapped/periodic) and **freeform** (deliberately non-seamless) behavior; do not promise seamless export for the latter.
+- A special brick inside the repeat cell will appear once *per copy* of the cell. For a truly rare or one-off surprise across a large area, explore larger repeat supercells or a separate final-composition layer.
+- AI may later make editable, contextual suggestions for historical details or hidden jokes. The user chooses what to apply.
+
+### Ordering / Status
+
+These are **ideas for future versions**, not blockers for the present standalone geometry/palette prototype. Prioritize correct brick layout, color presets, interactive controls and seamless SVG exports first. Preserve Experiment 001 and all original PNG references unchanged.
+
 ## Testing
 
 Verify:
