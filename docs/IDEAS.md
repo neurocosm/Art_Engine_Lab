@@ -22,6 +22,19 @@ This is an **exploration inventory**, not a committed feature specification.
 - Allow creative offsets, including deliberate seams or misregistration, with clearly differentiated "seamless" and "intentional offset" modes.
 - Examine visual rhythm, obvious repetition, motif density, and negative space without confusing subjective scoring with a mathematical guarantee.
 
+
+### Pattern rotation, shear, and lattice arrangements (proposed)
+
+- Add an **Angle / Rotation** control (slider or rotary knob, degrees) that rotates the whole repeating pattern, not merely an individual brick; keep a reset-to-zero action.
+- Add a separate **Slant / Shear** control to skew the repeat basis. Do not confuse shear with rotation or with brick-to-brick stagger.
+- Explore arrangement presets such as **rotated running bond**, **straight grid**, **herringbone**, **basketweave**, and **diamond/oblique lattice**. These may require *different algorithms*, not just a visual transform.
+- Consider independent **brick orientation** as a further control, distinct from rotation of the whole lattice.
+- Display repeat-basis vectors / transformed tile boundaries as a diagnostic overlay, and provide an unclipped larger repeat preview so artistic effects are understandable.
+- The transformed positions can be expressed with lattice vectors `p(i,j) = p0 + i·u + j·v`. Rotation or shear changes `u` and `v`; arrange geometry coherently across neighboring copies.
+- **Crucial export distinction:** An arbitrarily rotated/sheared lattice may repeat perfectly on a *parallelogram* cell or inside SVG using transformed pattern coordinates, but need not have a small axis-aligned rectangular PNG/SVG tile that repeats seamlessly by simple horizontal/vertical translation. Do not promise that automatically. Test actual exported repeat bounds and corners; where necessary use transformed SVG patterns, derived repeat periods, a valid larger repeat cell, or mark rectangular seamless export as unavailable for a chosen transformation.
+- Artistic offsets/misregistration may deliberately break seams; clearly distinguish them from correctly periodic transformations.
+- **Status:** Idea for a later Experiment 002 iteration / broader Tile Lab research. Basic geometry and three reference palettes remain the first implementation priority.
+
 ## Rendering techniques
 
 - SVG: paths, geometry, gradients, patterns, outlined typography, scalable motifs.
