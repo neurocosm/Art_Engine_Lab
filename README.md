@@ -15,6 +15,7 @@ The emphasis is on **learning by reconstruction** and retaining **artist control
 3. [`docs/DECISIONS.md`](docs/DECISIONS.md): agreed directions versus unresolved choices.
 4. [`AGENTS.md`](AGENTS.md): repo-wide instructions for Codex and other coding agents.
 5. [`docs/ROADMAP.md`](docs/ROADMAP.md): provisional development phases.
+6. [`docs/AI_ASSISTANCE.md`](docs/AI_ASSISTANCE.md): proposed shared AI collaborator and Historical Accuracy ↔ Creative License control.
 
 ## Planned experimental areas
 
@@ -22,6 +23,7 @@ The emphasis is on **learning by reconstruction** and retaining **artist control
 - [`projects/raster-rebuilder/`](projects/raster-rebuilder/): raster analysis and vector reconstruction.
 - [`projects/render-lab/`](projects/render-lab/): SVG, Canvas, WebGL, and layer rendering experiments.
 - [`projects/ai-composer/`](projects/ai-composer/): prospective AI-assisted layer analysis and prompt-based design.
+- [`projects/untrue-band-studio/`](projects/untrue-band-studio/): shelved fictional band identity and retro tour-shirt design studio.
 
 `assets/references/` is a possible location for user-owned or licensed examples. **Do not assume uploaded artwork is free to redistribute.**
 

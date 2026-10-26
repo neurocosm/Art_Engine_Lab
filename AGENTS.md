@@ -25,4 +25,6 @@ This is a creative **experimental monorepo** of related but independent art-tech
 - Summarize changes, how to run them, relevant validation, limitations, and possible next experiments.
 - Update `docs/DECISIONS.md` only when a genuine design decision has been made, not for every idea.
 
+Proposed shared AI-assisted features, including the creative-authenticity control, are documented in `docs/AI_ASSISTANCE.md`. Treat this as **future design context**, not authorization to add paid APIs, secrets, or automatic AI calls.
+
 Subprojects may add narrower `AGENTS.md` instructions once their needs become clear.

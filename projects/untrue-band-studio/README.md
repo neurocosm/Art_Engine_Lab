@@ -103,6 +103,20 @@ Potential independent components:
 
 These are ideas to explore, not committed requirements.
 
+## Shared AI Assistance — Historical Accuracy ↔ Creative License
+
+**Idea on the shelf; not implemented.** Untrue Band Studio may use the Art Engine Lab-wide [Shared AI Assistance spec](../../docs/AI_ASSISTANCE.md) as a creative collaborator. The artist could ask for invented band identities, typography treatments, era-specific stage lore, tour locations, and T-shirt concepts, then inspect and edit every suggestion.
+
+A signature **Creative Authenticity** slider (or vintage control-panel knob) would steer the direction:
+
+- **Historically Accurate (0):** A fictional band with period-plausible music genre, concert-poster design, print techniques, venues, typography and language. "Accurate" describes its historical **style**, not the reality of the band.
+- **Balanced (50):** Credible nostalgia mixed with original band mythology, playful copy and subtle musician/techie Easter eggs.
+- **Creative License (100):** Invented musical genres, improbable reunion tours, impossible amplifiers, alternate-history venues and outlandishly funny shirts — all intentionally fictional.
+
+**Example:** "Design an original 1977 progressive-rock tour shirt for a band that never existed. Include a made-up arena and a hidden joke that an electronics engineer would appreciate." Moving the control changes the plausibility of the inventions while preserving an original design.
+
+Potential future features: side-by-side interpretations at different slider positions, "make it weirder," "more era-authentic," regenerate just a name or venue, and editable SVG mockups. Fictional names and logos should be checked before commercial use to avoid confusingly similar real-world identities. No external AI calls or paid services should be enabled by default.
+
 ## Project Philosophy
 
 This is a playful creative laboratory.
