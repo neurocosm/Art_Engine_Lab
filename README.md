@@ -16,7 +16,8 @@ The emphasis is on **learning by reconstruction** and retaining **artist control
 4. [`AGENTS.md`](AGENTS.md): repo-wide instructions for Codex and other coding agents.
 5. [`docs/ROADMAP.md`](docs/ROADMAP.md): provisional development phases.
 6. [`docs/AI_ASSISTANCE.md`](docs/AI_ASSISTANCE.md): proposed shared AI collaborator and Historical Accuracy ↔ Creative License control.
-6. [`docs/BANDANA_LAB_OUTSIDER_ACCENTS.md`](docs/BANDANA_LAB_OUTSIDER_ACCENTS.md): future Bandana Lab outsider motif blend, zodiac star sprites, Saturn, and atom/energy accents.
+7. [`docs/BANDANA_LAB_FOUNDATION.md`](docs/BANDANA_LAB_FOUNDATION.md): **agreed foundation** for Experiment 003 — borderless, visually continuous, mathematically seamless bandana ornament.
+8. [`docs/BANDANA_LAB_OUTSIDER_ACCENTS.md`](docs/BANDANA_LAB_OUTSIDER_ACCENTS.md): future Bandana Lab outsider motif blend, zodiac star sprites, Saturn, and atom/energy accents.
 
 ## Planned experimental areas
 

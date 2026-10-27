@@ -60,13 +60,20 @@ Create optional hidden narrative details without forcing them into every design.
 
 **Scope:** Future Tile Lab exploration, not initial Experiment 002 requirements. Preserve original imagery and get base geometry, palettes, repetition and export behavior sound first.
 
+## Bandana Lab — Borderless Continuity (foundational decision)
+
+- **Experiment 003's primary mode is a mathematically seamless, visually continuous, borderless ornament field** inspired by bandana paisley, florals, vines, rosettes and detail. Do **not** repeat framed square bandanas or expose an outer/inner frame.
+- Flowing motif clusters must wrap across the cell's edges/corners. Test the actual exported repeat and independently inspect a 3×3/5×5 field for obvious grids, medallion repetitions and blank patches; mathematical wrapping does not guarantee attractive or invisible repeats.
+- Preserve the existing framed prototype while developing the new default. Optional framed mode can remain as an explicit alternative.
+- **Foundation spec:** [Bandana Lab — Borderless Seamless Ornament](BANDANA_LAB_FOUNDATION.md).
+
 ## Bandana Lab — Outsider Accent Blend (proposed)
 
-- For future **Experiment 003 — Bandana Lab**, maintain traditional square bandana ornament (paisley, borders, corner flourishes, center medallions) while selectively blending in subtle, recognizable nontraditional micro-motifs.
+- For future **Experiment 003 — Bandana Lab**, preserve the continuous traditional ornament vocabulary (paisley, floral/vine strands, rosettes, fillers) while subtly blending in recognizable nontraditional micro-motifs.
 - Provide an opt-in **Traditional ↔ Outsider Accent Blend** control, distinct from the shared Historical Accuracy ↔ Creative License AI setting; the default should favor a classic look.
 - Potential motif families: **zodiac constellation sprites** (tiny stars joined by fine, pale lines), **Saturn** and other planets/moons, a small **atom/energy emblem**, kaleidoscopic symmetry, fractal-inspired self-similar curls, and tiny nature surprises (such as a lizard).
 - Make accents **discoverable rather than dominant**. Integrate their lines, scale and colors into the existing ornament, rather than pasting on stickers or displacing the primary motif vocabulary.
-- Offer eventual artist controls for family, amount, placement, subtlety/recognizability, frequency, deterministic seed, and reset; keep them editable and removable.
+- Offer eventual artist controls for family, amount, **placement inside motif streams or filler gaps**, subtlety/recognizability, frequency, deterministic seed, and reset; keep them editable and removable, periodic in seamless mode.
 - Use reusable SVG vector motifs with readable actual-print-size line weights. If a pattern is stylized rather than a faithful zodiac star configuration, label it as constellation-inspired.
 - **Detailed spec:** [Bandana Lab Outsider Accents](BANDANA_LAB_OUTSIDER_ACCENTS.md).
 - **Status:** Future exploratory concept, not part of the current Experiment 003 coding task; no changes to unfinished app files.
