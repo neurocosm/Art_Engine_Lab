@@ -104,7 +104,38 @@ Display **three simultaneous contour studies** derived from the same editable or
 
 Review especially the *lower-bout octagon*, the cutaway's hand-clearance appearance, horn proportions, and whether side facets preserve the body's visually grounded stance. Make changes in response to the artist's eye **before** choosing instruments, hardware or manufacturing techniques.
 
-## 8. Fabrication guardrails (for later)
+## 8. Future feature proposal — Real-size templates and 3D-print exports (2026-10-28)
+
+**User request:** Once the body silhouette is visually settled, consider a simple **real-sizing** view so someone could trace and cut the design with a **bandsaw**, alongside standard **3D-printable file exports**. These are **future enhancements, not built into FACET LAB / 01**. Keep the interaction practical and uncomplicated rather than turning the first silhouette study into a full engineering suite.
+
+### A. Real-world dimensioning and bandsaw-friendly templates (first practical upgrade)
+
+- Add an optional **Real Size / Dimensions** mode with **millimeters and inches** and a clear note showing the chosen scale. The user can set target body **overall width and/or overall height**; by default preserve aspect ratio to avoid inadvertent stretching.
+- Establish size from a **known measurement or validated 1:1 source template** before claiming physical accuracy. The current reference silhouette is illustrative and is **not dimensionally calibrated**.
+- Show just a few useful dimensions initially: **overall width**, **overall length/height**, optional **lower-bout width**, **waist width**, and eventually select **edge/facet measurements**. Let the artist hide all guides for clean line-art display.
+- Add **printable full-size outline export**, ideally **1:1 SVG/PDF**. For normal paper printers, consider optional **tiled Letter/A4 pages** with alignment marks and a measurable **calibration square/ruler**. Label print instructions to use **actual size / 100%** and check the calibration mark with a physical ruler, never “fit to page.”
+- Offer a **cutting-line-only** print mode (outer perimeter, no simulated bevel shadows, decorative grain, or interface markers), so a user can tape a paper pattern to wood and make a rough bandsaw cut. A separate **bevel reference** view could show where chamfers are intended; this must not be confused with the perimeter to cut.
+- Preserve a **simple workflow**: choose dimensions → inspect 1:1 outline → export/print. Real-world body thickness, safety margins, neck pocket, cavities, and hardware clearances need separate validation before it can be described as a complete instrument plan.
+- Potential later **DXF** outline export for CAD/CNC or digital fabrication, with units and dimensional checks. Not a requirement for the first real-size release.
+
+### B. Optional 3D modeling and 3D-print-file export (later upgrade)
+
+- Consider widely used printable mesh formats: **3MF** (preferred candidate for preserving model units and richer print metadata where supported) and **STL** (broadly compatible legacy format, but commonly lacks inherent units, so import scale must be verified).
+- The **2D SVG outline is not yet a printable 3D body**. It would require a physical **body thickness**, a meaningful **3D bevel width/depth**, a closed manifold/watertight solid, consistent dimensions, and geometry validation before mesh generation.
+- Offer a minimal conceptual progression: calibrated 2D outline → user-selected **body thickness** → optional **actual 3D chamfer** → preview → export 3MF/STL. A **STEP** solid may be considered separately for CAD interchange, rather than assuming it is the most convenient slicer format.
+- Check exported mesh for open boundaries, inverted faces, self-intersections, scale/unit errors and print-bed fit. Large bass bodies may need a deliberate **multi-part split/joining** strategy; structural integrity, mounting features, cavity placement and material suitability are **not** guaranteed by export alone.
+- Treat printer-specific toolpaths (e.g., G-code) as a **slicer responsibility**, not a generic portable 3D-print export from FACET LAB.
+
+### Suggested sequencing
+
+1. Keep visual contour design fluid and reversible.
+2. Add calibrated dimensions and an uncluttered **1:1 printable cutting template**.
+3. Validate real-size SVG/PDF against measured dimensions in physical printouts.
+4. Only later introduce thickness, true 3D bevel geometry, mesh preview, and **3MF/STL export** with validity checks.
+
+**Decision status:** The *desire* to explore both real-sizing and standard 3D-print export is confirmed. Specific formats, user interface, geometric tolerance rules, and manufacturing workflows remain **proposals** until separately designed and tested.
+
+## 9. Fabrication guardrails (for later)
 
 - An SVG silhouette alone says nothing about neck-pocket dimension, string scale, rout clearances, bridge alignment, structural strength, balance, weight or strap locations.
 - The original silhouette geometry may have distorted proportions and cannot be assumed 1:1.
@@ -112,7 +143,7 @@ Review especially the *lower-bout octagon*, the cutaway's hand-clearance appeara
 - No automatic claim that a printed plastic guitar body will be adequately rigid or balanced; it requires structural assessment.
 - Preserve an unmodified reference and version design changes separately.
 
-## 9. Design language in one sentence
+## 10. Design language in one sentence
 
 *A Tele-style electric bass body whose iconic asymmetrical silhouette is retained while its organic curves become crisp, intelligently scaled straight facets, with an adjustable perimeter chamfer that makes the form feel like a beautifully resolved low-poly object.*
 
