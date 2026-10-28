@@ -23,6 +23,15 @@ Last updated: 2026-10-26.
 - **Rationale:** The user wants a seamless field whose traditional bandana vocabulary flows beyond any frame; a grid of discrete bandana squares misses that creative objective.
 - **Full direction:** [Bandana Lab — Borderless Seamless Ornament](BANDANA_LAB_FOUNDATION.md).
 
+## FACET LAB — Geometric silhouette studio (2026-10-27)
+
+- Add a **self-contained** FACET LAB experiment in `projects/facet-lab/`, with the Tele-style **electric bass** silhouette as its first subject, not a hard-coded limit on future subjects.
+- Confirmed first-stage goal: preserve a recognizable, asymmetrical T-style outline while replacing smooth contours with intentionally scaled straight-line facets; use broad octagonal-inspired segments on the lower bout and shorter, more careful transitions above.
+- A **visual** adjustable perimeter bevel, 2D SVG geometry, and multiple contour/detail presentations precede pickup layouts, dimensional CAD and manufacturing decisions.
+- Preserve an uncluttered front and treat rear-routed electronics as a preferred later direction. Pickguard, pickup layout, material, neck, 3D-printing or cutting approach remain open.
+- **Implementation:** prototype and full session notes at [FACET LAB](../projects/facet-lab/). The initial app is a shape study, not a true 3D beveled part or production-ready template.
+- **Rationale:** Make and compare silhouette experiments immediately rather than delaying visualization with premature technical decisions.
+
 ## Proposals only — not locked in
 
 - Current folder names and number of subprojects.

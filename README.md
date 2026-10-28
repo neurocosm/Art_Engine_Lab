@@ -19,6 +19,10 @@ The emphasis is on **learning by reconstruction** and retaining **artist control
 7. [`docs/BANDANA_LAB_FOUNDATION.md`](docs/BANDANA_LAB_FOUNDATION.md): **agreed foundation** for Experiment 003 — borderless, visually continuous, mathematically seamless bandana ornament.
 8. [`docs/BANDANA_LAB_OUTSIDER_ACCENTS.md`](docs/BANDANA_LAB_OUTSIDER_ACCENTS.md): future Bandana Lab outsider motif blend, zodiac star sprites, Saturn, and atom/energy accents.
 
+## New independent prototype — FACET LAB
+
+- **[FACET LAB / 01](projects/facet-lab/)**: open the [standalone SVG silhouette studio](projects/facet-lab/index.html), explore an adjustable low-poly bevel, and review the [design history and future ideas](projects/facet-lab/DESIGN_NOTES.md). A geometric Tele-style **bass body** is the first specimen; eventually the tool could work with other silhouettes. This is a separate experiment, not a unified app or a fabrication-ready CAD model.
+
 ## Planned experimental areas
 
 - [`projects/tile-lab/`](projects/tile-lab/): seamless repeat geometry, preview and adjustment.
