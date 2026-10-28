@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FACET LAB / 01 — Geometric Silhouette Studio</title>
+<style>
+:root{color-scheme:dark;--bg:#10151c;--panel:#1a222c;--hair:#35414b;--text:#edf1f3;--muted:#a9b8c5;--accent:#f0bd81}
+*{box-sizing:border-box}body{margin:0;font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--text)}
+button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:3px solid #81d8e5;outline-offset:3px}
+main{max-width:1360px;margin:auto;padding:20px clamp(14px,3vw,40px)}
+header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--hair);padding-bottom:20px;gap:12px}
+small.kicker{display:block;text-transform:uppercase;letter-spacing:.22em;color:var(--accent);font-size:11px;font-weight:750}
+h1{font-size:22px;letter-spacing:.11em;margin:2px 0}header p{color:var(--muted);margin:0;font-size:13px}
+header .tag{font-size:11px;letter-spacing:.16em;color:var(--accent);text-align:right}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:20px;margin-top:22px}
+.stage{position:relative;min-height:610px;border:1px solid var(--hair);border-radius:18px;background:radial-gradient(circle at 50% 45%,#303a46,#161f29 78%);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.stage:before{content:"";position:absolute;inset:0;background-image:linear-gradient(#ffffff09 1px,transparent 1px),linear-gradient(90deg,#ffffff09 1px,transparent 1px);background-size:26px 26px;pointer-events:none}
+.stage.line{background:#e6e2d9}.stage.line:before{background-image:linear-gradient(#00000009 1px,transparent 1px),linear-gradient(90deg,#00000009 1px,transparent 1px)}
+.stage.blueprint{background:#0c202c}
+#art{position:relative;width:90%;max-width:525px;max-height:680px;height:min(75vh,680px);filter:drop-shadow(0 14px 19px #0004)}
+.stage.line #art{filter:drop-shadow(0 6px 6px #0002)}
+.corner{position:absolute;top:16px;left:18px;font-size:11px;font-weight:700;letter-spacing:.14em;color:#bdd1df}.stage.line .corner,.stage.line .stat{color:#53595a}
+.stat{position:absolute;bottom:15px;left:18px;font-size:11px;color:#a7b8c5}
+aside{background:var(--panel);padding:23px;border:1px solid var(--hair);border-radius:18px;align-self:start}
+h2{margin:0 0 6px;font-size:21px}p.note{margin:0;color:var(--muted);font-size:12px;line-height:1.65}
+.control{border-top:1px solid var(--hair);padding-top:19px;margin-top:20px}
+.label-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:9px}
+label,.control-title{font-weight:700;font-size:13px}output{color:var(--accent);font-size:13px;font-variant-numeric:tabular-nums}
+input[type="range"]{width:100%;accent-color:var(--accent)}
+.ends{display:flex;justify-content:space-between;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+.group{display:grid;grid-template-columns:repeat(3,1fr);padding:4px;gap:4px;background:#101820;border:1px solid var(--hair);border-radius:11px;margin-top:11px}
+.group button{background:transparent;border:0;border-radius:8px;padding:10px 3px;color:#c5d1dc;font-size:12px}
+.group button[aria-pressed="true"]{background:var(--accent);color:#19212a;font-weight:750}
+.check{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:16px;font-weight:500}
+.check input{width:18px;height:18px;accent-color:var(--accent)}
+.actions{display:grid;gap:9px;margin-top:23px}
+.actions button{padding:12px;border-radius:10px;font-weight:750;border:1px solid #53616e;background:#263441;color:#eff3f5}
+.actions button.primary{background:var(--accent);color:#1b2229;border-color:var(--accent)}
+.actions button:hover{filter:brightness(1.1)}
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;color:#91a4b2;font-size:11px;margin-top:14px}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.stage{min-height:520px}#art{height:62vh}header .tag{display:none}}
+@media(max-width:460px){aside{padding:16px}.stage{min-height:410px}#art{height:480px}h1{font-size:19px}}
+</style>
+</head>
+<body>
+<main>
+<header><div><small class="kicker">Interactive Vector Workshop</small><h1>FACET LAB <span style="color:#93a4b2;font-weight:400">/ 01</span></h1><p>Tele-style bass · geometric silhouette experiment</p></div><div class="tag">ART ENGINE LAB<br>VECTOR CONTOUR STUDY</div></header>
+<div class="layout">
+<section id="stage" class="stage maple" aria-label="Design preview">
+<span class="corner" id="mode-label">MAPLE / FACETED</span>
+<svg id="art" xmlns="http://www.w3.org/2000/svg" viewBox="-52 36 904 1068" role="img" aria-label="Geometric Tele-style bass body"></svg>
+<span class="stat" id="stats">Geometric body study</span>
+</section>
+<aside>
+<h2>Shape controls</h2><p class="note">A familiar single-cutaway silhouette, rebuilt with straight contour facets and an adjustable perimeter bevel.</p>
+<div class="control"><div class="label-row"><label for="bevel">Bevel width</label><output id="bevel-out" for="bevel">16 / 40</output></div><input id="bevel" type="range" min="0" max="40" step="1" value="16"><div class="ends"><span>Flat outline</span><span>Deep chamfer</span></div><p class="note" style="margin-top:9px">Changes the inset ridge geometry, not merely an image filter.</p></div>
+<div class="control"><span class="control-title">Contour density</span><div id="detail" class="group" role="group" aria-label="Contour density"><button type="button" data-detail="subtle" aria-pressed="false">Subtle</button><button type="button" data-detail="balanced" aria-pressed="true">Balanced</button><button type="button" data-detail="bold" aria-pressed="false">Bold</button></div><p class="note" style="margin-top:9px">Fewer points produce larger, more assertive straight-line segments.</p></div>
+<div class="control"><span class="control-title">Rendering</span><div id="mode" class="group" role="group" aria-label="Rendering"><button type="button" data-mode="maple" aria-pressed="true">Maple</button><button type="button" data-mode="line" aria-pressed="false">Line art</button><button type="button" data-mode="blueprint" aria-pressed="false">Blueprint</button></div><label class="check" for="vertices">Show contour vertices <input type="checkbox" id="vertices"></label></div>
+<div class="actions"><button type="button" id="export" class="primary">↓ Export editable SVG</button><button type="button" id="reset">↺ Reset study</button></div>
+<p class="note" style="margin-top:16px">This is a visual prototype, not a measured CNC, 3D-print, or luthier cutting template. The bevel number uses drawing units, not mm or physical depth.</p>
+</aside>
+</div>
+<footer><span>TELE-INSPIRED BASS OUTLINE · BODY ONLY</span><span>SVG · NO DEPENDENCIES · OFFLINE</span></footer>
+</main>
+<script>
+(() => {
+"use strict";
+// Hand-defined vector study of the supplied silhouette, not automatic raster tracing.
+const shapes = {
+subtle:[[99,98],[62,143],[50,212],[59,264],[114,405],[122,481],[30,701],[5,815],[12,895],[44,962],[84,1004],[133,1032],[269,1058],[574,1052],[652,1034],[710,1005],[769,939],[795,853],[779,722],[693,536],[673,466],[677,402],[734,234],[732,172],[711,117],[685,101],[654,109],[598,229],[561,260],[524,269],[490,257],[468,225],[457,91],[337,92],[311,128],[178,80],[137,82]],
+balanced:[[99,98],[62,143],[50,212],[114,405],[122,481],[30,701],[5,815],[12,895],[44,962],[133,1032],[269,1058],[574,1052],[710,1005],[769,939],[795,853],[779,722],[673,466],[677,402],[734,234],[711,117],[685,101],[654,109],[598,229],[524,269],[490,257],[468,225],[457,91],[337,92],[311,128],[178,80]],
+bold:[[99,98],[62,143],[50,212],[122,481],[5,815],[44,962],[133,1032],[269,1058],[574,1052],[710,1005],[769,939],[795,853],[779,722],[673,466],[734,234],[711,117],[654,109],[598,229],[524,269],[468,225],[457,91],[337,92],[311,128],[178,80]]
+};
+const $=id=>document.getElementById(id);
+const S="http://www.w3.org/2000/svg";
+const state={bevel:16,detail:"balanced",mode:"maple",vertices:false};
+const art=$("art");
+const elem=(name,attrs={})=>{const e=document.createElementNS(S,name);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,String(v)));return e};
+const sub=(a,b)=>[a[0]-b[0],a[1]-b[1]];
+const add=(a,b)=>[a[0]+b[0],a[1]+b[1]];
+const mul=(a,k)=>[a[0]*k,a[1]*k];
+const unit=a=>mul(a,1/(Math.hypot(...a)||1));
+const cross=(a,b)=>a[0]*b[1]-a[1]*b[0];
+const polygon=pts=>pts.map(p=>p[0].toFixed(2)+","+p[1].toFixed(2)).join(" ");
+function offset(pts,w){
+ if(!w)return pts.map(p=>p.slice());
+ let area=0;pts.forEach((p,i)=>{const q=pts[(i+1)%pts.length];area+=p[0]*q[1]-q[0]*p[1]});
+ const sign=area<0?1:-1;
+ const n=pts.map((p,i)=>{const d=unit(sub(pts[(i+1)%pts.length],p));return mul([d[1],-d[0]],sign)});
+ return pts.map((p,i)=>{
+ const prev=(i+pts.length-1)%pts.length;
+ const d1=sub(p,pts[prev]),d2=sub(pts[(i+1)%pts.length],p);
+ const a=add(p,mul(n[prev],w)),b=add(p,mul(n[i],w));
+ const den=cross(d1,d2);
+ let move=Math.abs(den)<1e-5?mul(add(n[prev],n[i]),w/2):sub(add(a,mul(d1,cross(sub(b,a),d2)/den)),p);
+ if(!Number.isFinite(move[0])||!Number.isFinite(move[1])||Math.hypot(...move)>w*3.25)move=mul(unit(add(n[prev],n[i])),w);
+ return add(p,move);
+ });
+}
+function blend(a,b,t){const x=parseInt(a.slice(1),16),y=parseInt(b.slice(1),16);return "#"+[16,8,0].map(s=>Math.round(((x>>s)&255)*(1-t)+((y>>s)&255)*t).toString(16).padStart(2,"0")).join("")}
+function draw(){
+ const pts=shapes[state.detail],inner=offset(pts,state.bevel),line=state.mode==="line",blue=state.mode==="blueprint";
+ const edge=blue?"#67d7e8":line?"#283640":"#a8794f";
+ const defs=elem("defs");
+ const grad=elem("linearGradient",{id:"maple-gradient",x1:"0%",y1:"0%",x2:"95%",y2:"100%"});
+ [["0%","#f7d8aa"],["50%","#eec693"],["100%","#dbaa76"]].forEach(([offset,color])=>grad.append(elem("stop",{offset,"stop-color":color})));
+ const grain=elem("pattern",{id:"grain",width:52,height:74,patternUnits:"userSpaceOnUse"});
+ [[6,11],[16,20],[35,32],[47,49]].forEach(([x1,x2])=>grain.append(elem("line",{x1,y1:0,x2,y2:74,stroke:"#956d47","stroke-width":".85",opacity:".13"})));
+ defs.append(grad,grain);
+ art.replaceChildren(defs);
+ art.append(elem("polygon",{points:polygon(pts),fill:blue?"#102e3d":line?"#d1d7d5":"#b4814e",stroke:edge,"stroke-width":2.2,"stroke-linejoin":"miter"}));
+ if(state.bevel){
+  for(let i=0;i<pts.length;i++){
+   const j=(i+1)%pts.length,d=sub(pts[j],pts[i]),n=unit([d[1],-d[0]]),t=Math.max(.08,Math.min(.88,.45+(n[0]*-.7+n[1]*-.7)*.31));
+   const fill=blue?blend("#113541","#357483",t):line?blend("#cbd1cf","#f4f3ed",t):blend("#9f693c","#ffe7bc",t);
+   art.append(elem("polygon",{points:polygon([pts[i],pts[j],inner[j],inner[i]]),fill,stroke:blue?"#548894":line?"#68747a":"#b08760","stroke-width":.65,"stroke-linejoin":"miter"}));
+  }
+ }
+ art.append(elem("polygon",{points:polygon(inner),fill:blue?"#0b2531":line?"#fffefa":"url(#maple-gradient)",stroke:edge,"stroke-width":2,"stroke-linejoin":"miter"}));
+ if(state.mode==="maple")art.append(elem("polygon",{points:polygon(inner),fill:"url(#grain)",stroke:"none"}));
+ // Diagnostic markers must not be included in exported artwork.
+ if(state.vertices)pts.forEach(([cx,cy])=>art.append(elem("circle",{class:"debug-vertex",cx,cy,r:4,fill:blue?"#8ef0f8":line?"#283640":"#fff2d6",stroke:edge,"stroke-width":1.2})));
+ $("stage").className="stage "+state.mode;
+ $("mode-label").textContent={maple:"MAPLE / FACETED",line:"VECTOR / LINE ART",blueprint:"BLUEPRINT / GEOMETRIC"}[state.mode];
+ $("stats").textContent=pts.length+" contour vertices · bevel "+state.bevel+"/40";
+ $("bevel-out").textContent=state.bevel+" / 40";
+ document.querySelectorAll("[data-detail]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.detail===state.detail?"true":"false"));
+ document.querySelectorAll("[data-mode]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.mode===state.mode?"true":"false"));
+}
+$("bevel").addEventListener("input",e=>{state.bevel=Number(e.target.value);draw()});
+document.querySelectorAll("[data-detail]").forEach(b=>b.addEventListener("click",()=>{state.detail=b.dataset.detail;draw()}));
+document.querySelectorAll("[data-mode]").forEach(b=>b.addEventListener("click",()=>{state.mode=b.dataset.mode;draw()}));
+$("vertices").addEventListener("change",e=>{state.vertices=e.target.checked;draw()});
+$("reset").addEventListener("click",()=>{Object.assign(state,{bevel:16,detail:"balanced",mode:"maple",vertices:false});$("bevel").value=16;$("vertices").checked=false;draw()});
+$("export").addEventListener("click",()=>{
+ const clone=art.cloneNode(true);clone.removeAttribute("id");clone.setAttribute("width","904");clone.setAttribute("height","1068");
+ clone.querySelectorAll(".debug-vertex").forEach(v=>v.remove());
+ const xml='<?xml version="1.0" encoding="UTF-8"?>\n'+new XMLSerializer().serializeToString(clone);
+ const url=URL.createObjectURL(new Blob([xml],{type:"image/svg+xml;charset=utf-8"}));
+ const a=document.createElement("a");a.href=url;a.download=["facet-lab",state.detail,state.mode,"bevel-"+state.bevel].join("-")+".svg";
+ document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);
+});
+draw();
+})();
+</script>
+</body>
+</html>
