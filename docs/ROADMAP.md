@@ -24,6 +24,16 @@
 - [ ] Add seam inspection and reversible adjustment controls.
 - [ ] Export validated SVG or PNG results as appropriate.
 
+## Candidate future Tile Lab experiment — Caffeine Circuit
+
+- [x] Capture [Caffeine Circuit's design brief](CAFFEINE_CIRCUIT_GOAL.md) and [tracking issue #12](https://github.com/neurocosm/Art_Engine_Lab/issues/12).
+- [ ] Create the accurate caffeine molecule and inset transformer as protected SVG layers.
+- [ ] Add 85%-density PCB traces/components and palette presets (neon, Arizona Dusk colors only, patriotic intensity options).
+- [ ] Add the separate subtle Union Jack-influenced PCB-routing fork.
+- [ ] Validate export, readability, and actual tile seams if offering seamless repeat.
+
+This is a **future independent concept**, not a replacement for Experiments 001–003 or a committed implementation schedule.
+
 ## Stage 3 — Raster understanding
 
 - [ ] Palette and region analysis.
