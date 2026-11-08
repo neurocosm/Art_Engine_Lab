@@ -2,6 +2,10 @@
 
 Independent experiments in seamless repeat mathematics and artist-facing adjustment controls.
 
+## Planned concept — Caffeine Circuit
+
+**Design goal, not implemented.** Integrate a complete, chemistry-checked caffeine molecule and central transformer with sparse PCB-inspired paths and electronic symbols. Preserve the original cyan neon design, color-only Arizona Dusk palette, three patriotic intensities, and a subtle Union Jack-inspired trace geometry fork. Default peripheral density is **85%** of the earlier busy concept; the center is protected. See [full design notes](../../docs/CAFFEINE_CIRCUIT_GOAL.md) and [tracking issue #12](https://github.com/neurocosm/Art_Engine_Lab/issues/12). Keep this independent of Experiments 001–003.
+
 ## 003 — Bandana Lab (foundational direction)
 
 **Design decision:** Experiment 003 should produce **borderless, visually continuous, mathematically seamless ornamentation** in the spirit of classic paisley bandana artwork—not a repeated grid of complete, framed square bandanas. Paths, vines, rosettes and filler motifs should flow across repeat boundaries; the tile cell should disappear aesthetically, even though it exists mathematically.
