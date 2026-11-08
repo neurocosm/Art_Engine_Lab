@@ -23,6 +23,10 @@ The emphasis is on **learning by reconstruction** and retaining **artist control
 
 - **[FACET LAB / 01](projects/facet-lab/)**: open the [standalone SVG silhouette studio](projects/facet-lab/index.html), explore an adjustable low-poly bevel, and review the [design history and future ideas](projects/facet-lab/DESIGN_NOTES.md). A geometric Tele-style **bass body** is the first specimen; eventually the tool could work with other silhouettes. This is a separate experiment, not a unified app or a fabrication-ready CAD model.
 
+## Future Tile Lab goal — Caffeine Circuit
+
+- **[Caffeine Circuit](docs/CAFFEINE_CIRCUIT_GOAL.md)**: planned molecular/PCB vector-art experiment with a protected caffeine-plus-transformer centerpiece, 85% secondary circuit density, neon/Arizona-dusk/patriotic palette variants, and a subtle Union Jack-inspired trace-routing fork. Track progress in [GitHub issue #12](https://github.com/neurocosm/Art_Engine_Lab/issues/12). **Design goal only; not implemented.**
+
 ## Planned experimental areas
 
 - [`projects/tile-lab/`](projects/tile-lab/): seamless repeat geometry, preview and adjustment.
