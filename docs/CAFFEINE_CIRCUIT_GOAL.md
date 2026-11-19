@@ -10,6 +10,10 @@ Make a striking, scalable, editable graphic in which a **caffeine molecule** anc
 
 The central molecule and transformer are the hero. Preserve an uncluttered silhouette, readable chemical marks, coherent linework, and intentionally generous negative space around that hero.
 
+### Flat line-art direction
+
+Build the first editable SVG emblem as flat schematic line art. Use solid-color strokes, simple fills, and consistent line weights. Keep the caffeine molecule dominant, the inset transformer legible, and resistor symbols readable within the supporting traces. Use this treatment for Arizona Dusk, the Patriotic variants, and the subtle Union Jack routing fork. Keep glow and texture as optional effects, off in the flat treatment.
+
 ### Centerpiece — non-negotiable
 
 - **Complete caffeine structure**: reference the real molecular formula **C₈H₁₀N₄O₂** (1,3,7-trimethylxanthine), with the correct fused rings, atoms, carbonyls, and three N-methyl substituents. In future precise vector versions, validate against a trusted chemistry reference rather than blindly tracing generative-image approximations.
@@ -100,6 +104,7 @@ Preserve **all three** viable intensity presets:
 
 - [ ] Document the four looks and protect the central molecule + transformer as invariant geometry.
 - [ ] Build an **accurate** and legible caffeine SVG centerpiece with transformer as inset/overlay.
+- [ ] Review flat SVG exports in Arizona Dusk, Patriotic, and the Union Jack routing fork at the 85% peripheral density default. Check that bonds, labels, transformer coils, and resistor symbols remain legible at the intended display and print sizes.
 - [ ] Generate circuit traces and occasional electronic symbols, with a verifiable **85% default density**.
 - [ ] Implement interchangeable palette and intensity presets, including custom colors.
 - [ ] Implement the UK-inspired route topology as a separate reversible branch/preset.
