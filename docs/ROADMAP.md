@@ -30,6 +30,7 @@
 - [ ] Create the accurate caffeine molecule and inset transformer as protected SVG layers.
 - [ ] Add 85%-density PCB traces/components and palette presets (neon, Arizona Dusk colors only, patriotic intensity options).
 - [ ] Add the separate subtle Union Jack-influenced PCB-routing fork.
+- [ ] Export and review a flat line-art SVG emblem in Arizona Dusk, Patriotic, and the Union Jack routing fork, with roughly 15% fewer peripheral traces and components than the earlier busy reference.
 - [ ] Validate export, readability, and actual tile seams if offering seamless repeat.
 
 This is a **future independent concept**, not a replacement for Experiments 001–003 or a committed implementation schedule.
